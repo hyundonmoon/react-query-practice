@@ -3,7 +3,7 @@ import { z } from "zod";
 const HNStorySchema = z
   .object({
     author: z.string(),
-    url: z.string(),
+    url: z.string().default(""),
     title: z.string(),
     points: z.number(),
     num_comments: z.number(),
