@@ -9,6 +9,6 @@ export default function getHackerNewsQueryOptions(page: number) {
       const result = await getHackerNewsStories(page);
       return HNStoryApiResponseSchema.parse(result);
     },
-    staleTime: 1000 * 60 * 10,
+    staleTime: Infinity,
   });
 }

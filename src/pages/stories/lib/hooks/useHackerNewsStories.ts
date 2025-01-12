@@ -7,5 +7,6 @@ export function useHackerNewsStories(page: number) {
     placeholderData: (prev) => prev,
     refetchOnMount: false,
     refetchOnWindowFocus: false,
+    refetchOnReconnect: false,
   });
 }
