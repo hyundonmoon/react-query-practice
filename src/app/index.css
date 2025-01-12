@@ -1,0 +1,62 @@
+:root {
+  --beige: rgb(249, 244, 218);
+  --coal: #0f0d0e;
+  --purple: #646cff;
+  --purple-dark: #535bf2;
+  --purple-light: #6c71fa;
+  --highlight: #cadceb;
+  --white: #fff;
+
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color: var(--beige);
+  background-color: var(--coal);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  min-width: 320px;
+  display: flex;
+  place-items: center;
+}
+
+p {
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
+}

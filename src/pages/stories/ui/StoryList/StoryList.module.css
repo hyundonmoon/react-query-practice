@@ -1,0 +1,7 @@
+.storyList {
+  overflow: auto;
+}
+
+.storyList > * + * {
+  margin-top: 1rem;
+}
