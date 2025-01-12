@@ -1,7 +1,6 @@
-import prefetchHackerNewsStories from "@/pages/stories/lib/queries/prefetchHackerNewsStories";
+import { usePrefetchHackerNewsStories } from "@/pages/stories/lib/hooks/usePrefetchNewsStories";
 import BaseButton from "@/pages/stories/ui/buttons/BaseButton";
 import SingleAngleRight from "@/pages/stories/ui/icons/SingleAngleRight";
-import { useQueryClient } from "@tanstack/react-query";
 
 interface NextPageGroupButtonProps {
   setPage: React.Dispatch<React.SetStateAction<number>>;
@@ -12,7 +11,7 @@ export default function NextPageGroupButton({
   setPage,
   currentPageGroupIdx,
 }: NextPageGroupButtonProps) {
-  const queryClient = useQueryClient();
+  const { prefetch } = usePrefetchHackerNewsStories();
   const targetPageIdx = (currentPageGroupIdx + 1) * 5;
 
   const handleClick = () => {
@@ -20,7 +19,7 @@ export default function NextPageGroupButton({
   };
 
   const handleMouseEnter = () => {
-    prefetchHackerNewsStories(queryClient, targetPageIdx);
+    prefetch(targetPageIdx);
   };
 
   return (

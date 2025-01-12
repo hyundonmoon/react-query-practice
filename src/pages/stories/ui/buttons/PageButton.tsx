@@ -1,6 +1,5 @@
-import prefetchHackerNewsStories from "@/pages/stories/lib/queries/prefetchHackerNewsStories";
+import { usePrefetchHackerNewsStories } from "@/pages/stories/lib/hooks/usePrefetchNewsStories";
 import BaseButton from "@/pages/stories/ui/buttons/BaseButton";
-import { useQueryClient } from "@tanstack/react-query";
 
 interface PageButtonProps {
   pageValue: number;
@@ -15,13 +14,13 @@ export default function PageButton({
   pageValue,
   isCurrent,
 }: PageButtonProps) {
-  const queryClient = useQueryClient();
+  const { prefetch } = usePrefetchHackerNewsStories();
   const handleClick = () => {
     setPage(pageValue);
   };
 
   const handleMouseEnter = () => {
-    prefetchHackerNewsStories(queryClient, pageValue);
+    prefetch(pageValue);
   };
 
   return (

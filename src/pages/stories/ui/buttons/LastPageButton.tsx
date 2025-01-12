@@ -1,7 +1,6 @@
-import prefetchHackerNewsStories from "@/pages/stories/lib/queries/prefetchHackerNewsStories";
+import { usePrefetchHackerNewsStories } from "@/pages/stories/lib/hooks/usePrefetchNewsStories";
 import BaseButton from "@/pages/stories/ui/buttons/BaseButton";
 import DoubleAngleRight from "@/pages/stories/ui/icons/DoubleAngleRight";
-import { useQueryClient } from "@tanstack/react-query";
 
 interface LastPageButtonProps {
   setPage: React.Dispatch<React.SetStateAction<number>>;
@@ -12,14 +11,15 @@ export default function LastPageButton({
   setPage,
   totalPages,
 }: LastPageButtonProps) {
-  const queryClient = useQueryClient();
+  const { prefetch } = usePrefetchHackerNewsStories();
   const lastPageIdx = totalPages - 1;
 
   const handleClick = () => {
     setPage(lastPageIdx);
   };
+
   const handleMouseEnter = () => {
-    prefetchHackerNewsStories(queryClient, lastPageIdx);
+    prefetch(lastPageIdx);
   };
 
   return (

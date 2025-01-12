@@ -1,19 +1,20 @@
-import prefetchHackerNewsStories from "@/pages/stories/lib/queries/prefetchHackerNewsStories";
+import { usePrefetchHackerNewsStories } from "@/pages/stories/lib/hooks/usePrefetchNewsStories";
 import BaseButton from "@/pages/stories/ui/buttons/BaseButton";
 import DoubleAngleLeft from "@/pages/stories/ui/icons/DoubleAngleLeft";
-import { useQueryClient } from "@tanstack/react-query";
 
 interface FirstPageButtonProps {
   setPage: React.Dispatch<React.SetStateAction<number>>;
 }
 
 export default function FirstPageButton({ setPage }: FirstPageButtonProps) {
-  const queryClient = useQueryClient();
+  const { prefetch } = usePrefetchHackerNewsStories();
+
   const handleClick = () => {
     setPage(0);
   };
+
   const handleMouseEnter = () => {
-    prefetchHackerNewsStories(queryClient, 0);
+    prefetch(0);
   };
 
   return (
